@@ -4,15 +4,15 @@ import os
 
 # PROJECT_NAME: Project Name.
 # It would override page title, email confirmation to user, so on.
-PROJECT_NAME = 'Python Indonesia'
+PROJECT_NAME = 'Direktori Mozilla Indonesia'
 
 # PUBLIC_URL: Public URL that is used for publishing this apps.
 # It will be used for detail of the email confirmation, and other things if
 # it's needed
-PUBLIC_URL = 'http://members.python.or.id'
+PUBLIC_URL = 'http://mozid-tax.rhcloud.com'
 
 # PROJECT_FAVICON_FILE: Path to project favicon file
-PROJECT_FAVICON_FILE = '/static/img/favicon.png'
+PROJECT_FAVICON_FILE = '/static/img/'
 
 # PATH TO SQLITE DB
 SQLITE_DB_PATH = os.path.abspath(
@@ -40,7 +40,7 @@ MAIL_PASSWORD = ''
 MAIL_SUPPRESS_SEND = False
 
 # MAIL ADMINISTRATOR
-MAIL_ADMIN = ('Python Indonesia User Map Administrator', MAIL_USERNAME)
+MAIL_ADMIN = ('Mozilla Indonesia User Map Administrator', MAIL_USERNAME)
 
 # USER ICONS: All icon paths that are used.
 USER_ICONS = dict(

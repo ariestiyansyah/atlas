@@ -1,0 +1,16 @@
+{
+  "type": "FeatureCollection",
+  "features": [ {% for user in users %}
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "{{ user.name }}",
+        "popupContent": "{% include 'html/user_info_popup_content.html'%}"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [{{ user.longitude }}, {{ user.latitude }}]
+      }
+    }{% if not loop.last %},{% endif %}{% endfor %}
+  ]
+}

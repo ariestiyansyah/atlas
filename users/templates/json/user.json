@@ -1,0 +1,12 @@
+{
+  "guid": "{{ user.guid }}",
+  "name": "{{ user.name }}",
+  "email": "{{ user.email }}",
+  "website": "{{ user.website }}",
+  "email_updates": {{ user.email_updates }},
+  "latitude": {{ user.latitude }},
+  "longitude": {{ user.longitude }},
+  {% if user.social_account %}
+  "twitter": "{{ user.social_account.twitter }}"
+  {% endif %}
+}

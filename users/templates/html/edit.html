@@ -1,0 +1,74 @@
+{% extends "html/base.html" %}
+{% block title %} {{ project_name | safe }} - Edit User {% endblock %}
+
+{% block head_resources %}
+  {{ super() }}
+{% endblock head_resources %}
+
+{% block body %}
+  {{ super() }}
+  <!-- Modal for delete confirmation -->
+  <div class="modal fade" id="delete-confirmation-modal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3 class="modal-title">Delete? &#128549</h3>
+        </div>
+        <div class="modal-body">
+          <p>
+            Are you sure want to delete yourself from this user map?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-danger" data-dismiss="modal"
+                  onclick="deleteUser()" aria-hidden="true">
+            Delete
+          </button>
+          <button class="btn btn-default" data-dismiss="modal"
+                  onclick="activateDefaultState();" aria-hidden="true">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for delete user successfully -->
+  <div class="modal fade" id="delete-success-modal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Information</h3>
+        </div>
+        <div class="modal-body">
+          <p>
+            You have succesfully deleted your data!
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" onclick="window.open('/', '_self');"
+                  data-dismiss="modal" aria-hidden="true">
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js_container %}
+  <script type="text/javascript">
+    var edited_user, edited_user_marker, edited_user_layer, edited_user_popup,
+        edited_user_form_popup;
+
+    initializeEditedUser({{ user | safe }}, "{{ edited_user_popup_content | safe }}");
+
+    $(document).ready(function () {
+      //Add Edited User Layer
+      edited_user_layer = new L.LayerGroup();
+      addEditedUser(edited_user , edited_user_layer, edited_user_popup);
+      edited_user_layer.addTo(map);
+    })
+  </script>
+{% endblock %} <!--endblock of js_container -->
